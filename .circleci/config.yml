@@ -17,7 +17,7 @@ jobs:
             - run:
                 name: Test the app
                 command:
-                    dotnet test --logger trx --results-directory "..\TestResults"
+                    dotnet test --logger trx --results-directory "..\..\TestResults"
             - run:
                 name: Install TRX 2 JUnit converter
                 command: |
@@ -25,7 +25,7 @@ jobs:
                     dotnet tool install -g trx2junit
                 when: always            
             - run:
-                name: Prepare data
+                name: Convert TRX test results to JUnit format
                 when: always
                 command: |
                     /root/.dotnet/tools/trx2junit TestResults/*.trx
