@@ -14,7 +14,7 @@ namespace hellocirclecilib.test
         [Fact]
         public void Test2()
         {
-            Assert.Equal("41", new Thing().Get(19, 24));
+            Assert.Equal("43", new Thing().Get(19, 24));
         }
     }
 }
