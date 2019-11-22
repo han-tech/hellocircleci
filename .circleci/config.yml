@@ -15,11 +15,18 @@ jobs:
                 command:
                     dotnet build
             - run:
-                name: Run the test
+                name: Test the app
+                command:
+                    dotnet test --no-build --logger "trx"
+            - run:
+                name: Prepare data
+                when: always
                 command: |
-                    mkdir cucumber
-                    dotnet test -l:trx;LogFileName=~/cucumber/TestOutput.xml
+                    dotnet tool install -g trx2junit
+                    export PATH="$PATH:/root/.dotnet/tools"
+                    trx2junit tests/**/TestResults/*.trx            
             - store_test_results:
-                path: ~/cucumber
+                path: tests/TestResults
             - store_artifacts:
-                path: ~/cucumber
+                path: tests/TestResults
+                destination: TestResults
