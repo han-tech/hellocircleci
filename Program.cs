@@ -1,4 +1,5 @@
-﻿using System;
+﻿using hellocirclelib;
+using System;
 
 namespace hellocircleci
 {
@@ -6,7 +7,7 @@ namespace hellocircleci
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello CircleCI!");
+            Console.WriteLine("Hello CircleCI!"+ new Thing().Get(19, 23));
         }
     }
 }
