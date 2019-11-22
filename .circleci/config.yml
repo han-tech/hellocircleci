@@ -18,3 +18,7 @@ jobs:
                 name: Run the app
                 command:
                     dotnet run
+            - run:
+                name: Run the test
+                command:
+                    dotnet test                    
