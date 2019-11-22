@@ -15,10 +15,11 @@ jobs:
                 command:
                     dotnet build
             - run:
-                name: Run the app
-                command:
-                    dotnet run
-            - run:
                 name: Run the test
-                command:
-                    dotnet test                    
+                command: |
+                    md cucumber
+                    dotnet test -l:trx;LogFileName=~/cucumber/TestOutput.xml
+            - store_test_results:
+                path: ~/cucumber
+            - store_artifacts:
+                path: ~/cucumber
