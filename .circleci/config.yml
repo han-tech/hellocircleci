@@ -17,7 +17,7 @@ jobs:
             - run:
                 name: Run the test
                 command: |
-                    md cucumber
+                    mkdir cucumber
                     dotnet test -l:trx;LogFileName=~/cucumber/TestOutput.xml
             - store_test_results:
                 path: ~/cucumber
